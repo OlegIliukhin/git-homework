@@ -42,13 +42,12 @@ def common_elements(list1: list, list2: list) -> list:
 # 4. Словники (Dictionaries)
 # =========================
 
-def print_dict_keys(d: dict) -> None:
-    for key in d:
-        print(key)
+def dict_keys(d: dict) -> list:
+    return list(d.keys())
 
 
 def merge_dicts(d1: dict, d2: dict) -> dict:
-    return d1 | d2
+    return {**d1, **d2}
 
 
 # =========================
@@ -81,3 +80,26 @@ def only_even(numbers: list) -> list:
 
 even_lambda = lambda x: "парне" if x % 2 == 0 else "не парне"
 
+
+if __name__ == "__main__":
+    print(string_length("hello"))
+    print(concat_strings("hi ", "world"))
+
+    print(square_number(5))
+    print(sum_numbers(3, 4))
+    print(divide_with_remainder(10, 3))
+
+    print(average_list([1, 2, 3, 4]))
+    print(common_elements([1, 2, 3], [2, 3, 4]))
+
+    print(dict_keys({"a": 1, "b": 2}))
+    print(merge_dicts({"a": 1}, {"b": 2}))
+
+    print(union_sets({1, 2}, {2, 3}))
+    print(is_subset({1, 2}, {1, 2, 3}))
+
+    print(even_or_odd(5))
+    print(only_even([1, 2, 3, 4, 5, 6]))
+
+    print(even_lambda(4))
+    print(even_lambda(7))
