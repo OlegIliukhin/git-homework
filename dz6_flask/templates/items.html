@@ -1,12 +1,24 @@
 {% extends "base.html" %}
 
-{% block title %}Список{% endblock %}
+{% block title %}Список книг{% endblock %}
 
 {% block content %}
-    <h2>Список книг</h2>
-    <ul>
-        {% for item in items %}
-            <li>{{ item }}</li>
-        {% endfor %}
-    </ul>
+<h2>Наші книги</h2>
+
+<ul>
+    {% for book in books %}
+        <li>
+            <strong>{{ book.title }}</strong> — {{ book.author }}
+        </li>
+    {% endfor %}
+</ul>
+
+<h3>Додати нову книгу</h3>
+
+<form method="POST">
+    <input type="text" name="title" placeholder="Назва книги" required>
+    <input type="text" name="author" placeholder="Автор" required>
+    <button type="submit">Додати</button>
+</form>
+
 {% endblock %}
