@@ -1,0 +1,3 @@
+product,Мишка,м'яка іграшка,300,10
+product,Лего,конструктор,500,5
+customer,Олег,oleg@gmail.com
