@@ -25,8 +25,13 @@ class Order:
 
     def add_product(self, product: Product, quantity: int) -> None:
         """Додає товар до замовлення"""
+        if quantity > product.stock:
+            print(f"Недостатньо товару на складі: {product.name}")
+            return
+
         self.products.append((product, quantity))
         self.total_amount += product.price * quantity
+        product.change_stock(product.stock - quantity)
 
     def calculate_total(self) -> None:
         """Обчислює загальну суму замовлення"""
@@ -97,11 +102,11 @@ for customer in store.customers:
 
         product = store.products[0]
         order.add_product(product, 1)
-        product.change_stock(product.stock - 1)
+       
 
         product = store.products[1]
         order.add_product(product, 2)
-        product.change_stock(product.stock - 2)
+        
 
         order.calculate_total()
         customer.add_order(order)
